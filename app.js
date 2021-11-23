@@ -15,6 +15,7 @@ const { username, room } = Qs.parse(location.search, {
 */
 //location.href = "./index.html?room=hubbabuuba";
 
+const ADDRESS = "https://angusmclean24.github.io/io-game/";
 const URL = "wss://slime-io-game.glitch.me/";
 const socket = io(URL);
 
@@ -74,7 +75,7 @@ function joinLobby (){
 }
 
 function displayJoinLink (room) {
-    joinLink.value = `${URL}?${room}`;
+    joinLink.value = `${ADDRESS}?${room}`;
 }
 
 function outputUsers(users){
