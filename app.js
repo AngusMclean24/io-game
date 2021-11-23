@@ -15,7 +15,7 @@ const { username, room } = Qs.parse(location.search, {
 */
 //location.href = "./index.html?room=hubbabuuba";
 
-const URL = "http://localhost:3000";
+const URL = "wss://slime-io-game.glitch.me/";
 const socket = io(URL);
 
 //User info
