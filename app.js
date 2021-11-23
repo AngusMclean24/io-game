@@ -40,7 +40,6 @@ socket.on('roomUsers', (users) => {
 
 
 //Dom input listeners
-//if want to join a specific room
 joinForm.addEventListener("submit", function(evt) {
     evt.preventDefault();
     var target = evt.explicitOriginalTarget || evt.relatedTarget || document.activeElement || {};
@@ -64,7 +63,7 @@ joinForm.addEventListener("submit", function(evt) {
     
 }, true);
 
-//if want to become host
+//copyButton.addEventListener("click", console.log("hello"));
 
 
 
@@ -78,17 +77,33 @@ function displayJoinLink (room) {
     joinLink.value = `${ADDRESS}?${room}`;
 }
 
+function copyLink() {
+    /* Get the text field */
+    //var copyText = document.getElementById("myInput");
+  
+    /* Select the text field */
+    joinLink.select();
+    joinLink.setSelectionRange(0, 99999); /* For mobile devices */
+  
+     /* Copy the text inside the text field */
+    navigator.clipboard.writeText(joinLink.value);
+}
+
 function outputUsers(users){
-    console.log(users)
     var text = null
     for (let i =0; i < users.length; i++){
+        var toplace = users[i].username;
+        if (users[i].id == sessionID) {
+            toplace += " (you)";
+        }
+
         if (text == null){
-            text = `<li>${users[i].username}</li>`
+            text = `<li>${toplace}</li>`
         } else {
-            text += `<li>${users[i].username}</li>`;
+            text += `<li>${toplace}</li>`;
         }
         
     }
-    console.log(text);
     userList.innerHTML = text;
 }   
+ 
