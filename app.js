@@ -1,9 +1,5 @@
 const ADDRESS = "https://angusmclean24.github.io/io-game/";
 const URL = "wss://slime-io-game.glitch.me/";
-const socket = io(URL);
-
-const ADDRESS = "file:///Users/angus/Desktop/coding/Web/slime.io/app/index.html"
-const URL = "http://localhost:3000";
 const socket = io(URL, { autoConnect: false });
 
 const initialScreen = document.getElementById('initialScreen');
